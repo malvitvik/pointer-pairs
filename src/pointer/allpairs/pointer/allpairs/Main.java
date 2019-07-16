@@ -1,5 +1,9 @@
 package pointer.allpairs;
 
+import java.util.ArrayList;
+import java.util.List;
+
+
 public class Main {
 
     public static void main(String[] args) {
@@ -9,34 +13,27 @@ public class Main {
 
     private static void printArray(int[][] arr) {
         for (int i = 0; i < arr.length; i++) {
-            if (arr[i] == null) {
-                break;
-            }
-
             for (int j = 0; j < arr[i].length; j++) {
-                System.out.print("\tarr[" + i + "][" + j + "] = " + arr[i][j]);
+                System.out.print("\tarr[" + i + "][" + j + "] = " +arr[i][j]);
             }
             System.out.println();
         }
+
+        System.out.println("Array length: " + arr.length);
     }
 
 
     public static int[][] getAllPairs(int[] array, int sum) {
-        int length = array.length - 1 ;
-        for (int i = length; i > 0; length += --i) {}
-        
-        int[][] result = new int[length][];
-
-        int index = 0;
+        List<int[]> result = new ArrayList<>();
 
         for (int i = 0; i < array.length; i++) {
             for (int j = i + 1; j < array.length; j++) {
                 if (array[i] + array[j] == sum) {
-                    result[index++] = new int[]{array[i], array[j]};
+                    result.add(new int[]{array[i], array[j]});
                 }
             }
         }
 
-        return result;
+        return result.toArray(new int[][]{});
     }
 }
