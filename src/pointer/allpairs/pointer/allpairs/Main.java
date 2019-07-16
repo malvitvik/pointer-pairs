@@ -18,12 +18,10 @@ public class Main {
             }
             System.out.println();
         }
-
-        System.out.println("Array length: " + arr.length);
     }
 
 
-    public static int[][] getAllPairs(int[] array, int sum) {
+    private static int[][] getAllPairs(int[] array, int sum) {
         List<int[]> result = new ArrayList<>();
 
         for (int i = 0; i < array.length; i++) {
